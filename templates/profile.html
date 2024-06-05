@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+		<!-- Start Hero Section -->
+        <div class="hero" style="background-color: rgb(62, 62, 137);">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-5">
+                        <div class="intro-excerpt">
+                            <h1>VIEW PROFILE</h1>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <!-- End Hero Section -->
+
+    
+
+    <!-- Start Why Choose Us Section -->
+    <div class="why-choose-section" >
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+            
+                <div class="col-lg-6">
+                    
+
+                    <div class="row my-5">
+                    
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <div class="icon">
+                                    <h3>Username</h3>
+                                    <p>{{ var1.user.username }}</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                
+                                <h3>Address</h3>
+                                <p>{{ var1.address }}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                
+                                <h3>E-mail </h3>
+                                <p>{{ var1.user.email }}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                
+                                <h3>Contact Number</h3>
+                                <p>{{ var1.phone }}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                
+                                <h3>Place</h3>
+                                <p>{{ var1.place }}</p>
+                            </div>
+                        </div>
+                   
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5" >
+                    <div class="img-wrap">
+                        <img src="{{var1.imageURL}}" alt=" " width="300px" height="100px" class="img-fluid">
+                    </div>
+                </div>
+           
+                <a href="{% url 'update_profile' var1.pk %}"><button class="btn btn-primary-hover-outline" style="width: 500px; margin-left: 300px;margin-top: 100px;">Update Profile</button></a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

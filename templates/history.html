@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br><br>
+
+<div class="container-fluid" style="margin-left: 50px;padding-right: 70px;">
+
+    {% for message in messages %}
+    <h2 style="color: rgb(255, 0, 225);">{{ message }}</h2>
+    {% endfor %} 
+    <h1>ORDERED ITEMS</h1><br>
+    <table style="width: 100%; border-collapse: collapse; border: 1px solid #2c95ca;">
+        <tr style="background-color: #f2f2f2;">
+            <th style="padding: 8px; border: 1px solid #ccc;">ITEM NAME</th>
+            <th style="padding: 8px; border: 1px solid #ccc;">ITEM IMAGE</th>
+            <th style="padding: 8px; border: 1px solid #ccc;">WANTED DATE</th>
+            <th style="padding: 8px; border: 1px solid #ccc;">WANTED DAY</th>
+            <th style="padding: 8px; border: 1px solid #ccc;">WANTED HOURS</th>
+            <th style="padding: 8px; border: 1px solid #ccc;">PROOF</th>
+            <th style="padding: 8px; border: 1px solid #ccc;">STATUS</th>
+        </tr>
+        {% for item in order %}
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ccc;">{{ item.equipment.name }}</td>
+            <td style="padding: 8px; border: 1px solid #ccc;"><img src="{{ item.equipment.imageURL }}" alt="" width="80px" height="80px"></td>
+            <td style="padding: 8px; border: 1px solid #ccc;">{{ item.ndate }}</td>
+            <td style="padding: 8px; border: 1px solid #ccc;">{{ item.ndays }}</td>
+            <td style="padding: 8px; border: 1px solid #ccc;">{{ item.nhours }}</td>
+            <td style="padding: 8px; border: 1px solid #ccc;"><img src="{{ item.imageURL }}" alt="" width="80px" height="80px"></td>
+            {% if item.bookstatus %}
+                <td style="padding: 8px; border: 1px solid #ccc;">APPROVED</td>
+            {% else %} 
+                <td style="padding: 8px; border: 1px solid #ccc;">PENDING</td>  
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

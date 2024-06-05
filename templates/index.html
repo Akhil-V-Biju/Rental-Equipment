@@ -1,0 +1,152 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+		<!-- Start Hero Section -->
+		<div class="hero" style="background-image: url(static/images/index3.jpg); background-repeat: no-repeat; background-size: cover; height: 600px;" onmouseover="changeImage()">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-5">
+						<div class="intro-excerpt">
+							<h1 style="color: rgb(255, 255, 255); animation: slideIn 5s ease forwards;">Agricultural Equipments <span class="d-block">RENTAL AREA</span></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<style>
+			.hero {
+				transition: background-image 1s ease;
+			}
+		
+			@keyframes slideIn {
+				from {
+					opacity: 0;
+					transform: translateY(-50px);
+				}
+				to {
+					opacity: 2;
+					transform: translateY(0);
+				}
+			}
+		</style>
+		
+		<script>
+			var images = ["static/images/index3.jpg",  "static/images/index4.png"];
+			var currentIndex = 0;
+		
+			function changeImage() {
+				currentIndex = (currentIndex + 1) % images.length;
+				document.querySelector('.hero').style.backgroundImage = 'url(' + images[currentIndex] + ')';
+			}
+		</script>
+		
+		
+		<!-- End Hero Section -->
+
+		<!-- Start Product Section -->
+		<div class="product-section">
+			<div class="container">
+				<div class="row">
+				{% for item in items %}
+
+					<!-- Start Column 1 -->
+					
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="{% url 'view_cart' item.pk %}">
+							<img src="{{ item.imageURL }}" style="height: 150px; width: 280px;border-radius: 20px;" class="img-fluid product-thumbnail">
+							<h3 class="product-title">{{ item.name }}</h3>
+							<strong class="product-price"><span>${{ item.priceday }}</span></strong><br>
+							<strong class="product-price"><span>${{ item.pricehour }}</span></strong><br>
+
+							
+						
+							
+						</a>
+						<a href="{% url 'buy_cart' item.pk %}">
+							<span class="icon-cross">
+								<button style="background-color: rgb(22, 99, 22); width: 260px;color: aliceblue; border-radius: 40px;">RENT NOW</button>
+							</span>
+						</a>
+						<br><br><br><br><br><br> <br>
+						
+
+						
+					</div> 
+					<!-- End Column 1 -->
+
+				
+					
+					<!-- End Column 4 -->
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+		<!-- End Product Section -->
+
+		<!-- Start Why Choose Us Section -->
+		
+		<!-- End Why Choose Us Section -->
+
+		<!-- Start We Help Section -->
+		
+		<!-- End We Help Section -->
+
+		<!-- Start Popular Product -->
+		
+		<!-- End Popular Product -->
+
+		<!-- Start Testimonial Slider -->
+		<div class="testimonial-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 mx-auto text-center">
+						<h2 class="section-title">REVIEWS</h2>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					<div class="col-lg-12">
+						<div class="testimonial-slider-wrap text-center">
+
+							<div id="testimonial-nav">
+								<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+								<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+							</div>
+
+							<div class="testimonial-slider">
+								{% for testimonial in testimonials %}
+								<div class="item">
+									<div class="row justify-content-center">
+										<div class="col-lg-8 mx-auto">
+											<div class="testimonial-block text-center">
+												<blockquote class="mb-5">
+													<p style="font-size: 50px;font-weight: bold;">&ldquo;{{ testimonial.text }}&rdquo;</p>
+												</blockquote></div><br><br><br>
+												<div class="">
+													<div class="">
+														<img src="{{ testimonial.user.imageURL }}" alt="User Image" style="height: 50px; width: 50px; border-radius: 250px;">
+													
+													<h5 class="font-weight-bold">{{ testimonial.user.user.username }}</h3>
+													<h5 class="font-weight-bold">{{ testimonial.user.place }}</h3>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Testimonial Slider -->
+
+		<!-- Start Blog Section -->
+		
+		<!-- End Blog Section -->	
+{% endblock %}

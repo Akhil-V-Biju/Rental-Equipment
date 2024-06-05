@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style="background-color: antiquewhite;" >
+    <div class="row" style="margin-left: 200px; margin-right: 200px;" >
+        <div class="col-md-12"><br><br>
+            <h2>RENT AN EQUIPMENT</h2><br><br>
+            
+            <form method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">NAME</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{equipment.name}}" required>
+                </div>
+               
+                <div class="mb-3">
+                    <label for="rate_per_day" class="form-label">DATE YOU NEEDED</label>
+                    <input type="date" class="form-control" id="rate_per_day" name="date" required>
+                </div>
+                <div class="mb-3">
+                    <label for="rate_per_hour" class="form-label">NEEDED HOUR</label>
+                    <input type="number" class="form-control" id="rate_per_hour" name="hour" required>
+                </div>
+                <div class="mb-3">
+                    <label for="rate_per_hour" class="form-label">NEEDED DAY</label>
+                    <input type="number" class="form-control" id="rate_per_hour" name="day" required>
+                </div>
+                <div class="form-group">
+                    <img src="" alt="">
+                    <label class="text-black" for="image">ID PROOF</label>
+                    <input type="file" class="form-control" name="image">
+                </div>
+                <br><br>
+                <button type="submit" class="btn btn-primary">Buy Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

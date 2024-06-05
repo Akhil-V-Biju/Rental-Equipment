@@ -1,0 +1,39 @@
+{% extends "admin/adminbase.html" %}
+{% load static %}
+{% block content %}
+<!-- Add Equipment Form -->
+
+<div class="container-fluid">
+
+    <h1>UPDATE EQUIPMENT</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ update.name }}">
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description">{{ update.description }}</textarea>
+         </div><br><br>
+        <div class="form-group">
+            <label for="image">Image:</label>
+            <img src="{{ update.imageURL }}" alt="" style="width: 50px;height: 50px;">
+            <input type="file" class="form-control-file" id="image" name="image" value="{{ update.image }}">
+        </div><br><br>
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" value="{{ update.quantity }}">
+        </div><br><br>
+        <div class="form-group">
+            <label for="price_day">Price/day:</label>
+            <input type="number" class="form-control" id="quantity" name="priceday" value="{{ update.priceday }}">
+        </div><br><br>
+        <div class="form-group">
+            <label for="price_hour">Price/hour:</label>
+            <input type="number" class="form-control" id="quantity" name="price_hour" value="{{ update.pricehour }}">
+        </div><br><br>
+        <button type="submit" class="btn btn-primary">UPDATE </button>
+    </form>
+</div>
+{% endblock %}

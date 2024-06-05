@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1 style="margin-left: 100px;">Add Profile</h1><br><br><br>
+<form method="POST" enctype="multipart/form-data" style="margin-left: 100px;margin-right: 100px;">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label class="text-black" for="name">Name</label>
+          <input type="text" class="form-control" name="name">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="number">Contact Number</label>
+          <input type="number" class="form-control" name="cnumber">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="text-black" for="email"> Address</label>
+      <input type="text" class="form-control" name="address">
+    </div>
+
+    <div class="col-6">
+        <div class="form-group">
+          <label class="text-black" for="place">Place</label>
+          <input type="text" class="form-control" name="place">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="text-black" for="image">Add Image</label>
+        <input type="file" class="form-control" name="image">
+    </div><br>
+
+
+    <button type="submit" class="btn btn-primary-hover-outline" style="width: 500px; margin-left: 400px;">Add Change</button><br><br>
+    
+
+    
+
+    
+  </form>
+
+  
+
+{% endblock %}

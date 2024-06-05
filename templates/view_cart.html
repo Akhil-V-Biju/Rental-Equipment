@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+		<!-- Start Hero Section -->
+        <div class="hero" style="background-color: rgb(62, 62, 137);">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-5">
+                        <div class="intro-excerpt">
+                            <h1>VIEW CART</h1>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <!-- End Hero Section -->
+
+    
+
+    <!-- Start Why Choose Us Section -->
+    <div class="why-choose-section" >
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+            
+                <div class="col-lg-6">
+                    
+
+                    <div class="row my-5">
+                    
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <div class="icon">
+                                    <h3>ITEM NAME</h3>
+                                    <p>{{ item.name }}</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                
+                                <h3>DESCRIPITION</h3>
+                                <p>{{ item.description }}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                
+                                <h3>QUALITY </h3>
+                                <p>{{ item.quantity }}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                
+                                <h3>PRICE PER DAY</h3>
+                                <p>{{ item.priceday }}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                
+                                <h3>PRICE PER HOUR</h3>
+                                <p>{{ item.pricehour }}</p>
+                            </div>
+                        </div>
+                   
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5" >
+                    <div class="img-wrap">
+                        <img src="{{item.imageURL}}" alt=" " width="300px" height="100px" class="img-fluid">
+                    </div>
+                </div><br><br>
+
+
+                <div style="margin-left: 400px;width: 50px;height: 50px;">
+                    <a href="{% url 'buy_cart' item.pk  %}">
+                        <span class="icon-cross">
+                            <button style="background-color: rgb(22, 99, 22); width: 270px;color: aliceblue; border-radius: 40px;">RENT NOW</button>
+                        </span>
+                    </a>
+
+                </div>
+
+
+
+                
+           
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
